@@ -16,6 +16,7 @@ O projeto resolve o desafio de estruturar uma página com múltiplas seções in
 
 ## 🖼️ Demonstração Visual
 
+https://clone-disneyplus-ruby-kappa.vercel.app
 
 
 ## 🛠️ Tecnologias Utilizadas
