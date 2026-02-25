@@ -14,12 +14,11 @@ Construir interfaces de plataformas de streaming exige atenção rigorosa a deta
 
 Este repositório resolve o problema de estruturar páginas complexas sem frameworks pesados, provando a capacidade de construir interfaces modernas e responsivas utilizando a tríade fundamental da web (HTML, CSS e JS) potencializada por ferramentas de desenvolvimento.
 
-> **Resultados de Performance:** "Utilizei a ferramenta **Gulp** (com plugins de compressão e minificação de imagens/código) e isso deixou o carregamento **3x mais rápido** ao abrir a aplicação, otimizando drasticamente o Largest Contentful Paint (LCP) das imagens de alta resolução presentes no Hero e nas sessões de filmes."
-
+> **Resultados de Performance:** "O workflow automatizado lidou eficientemente com a alta carga de imagens de fundo (backgrounds) e elementos sobrepostos. A compressão otimizou drasticamente o Largest Contentful Paint (LCP) das imagens de alta resolução (Hero e sessões de filmes), deixando o carregamento da aplicação 3x mais rápido."
+ 
 ## 🖼️ Demonstração Visual
 
-*(Se o projeto estiver hospedado na Vercel, Netlify ou GitHub Pages, insira o link aqui)*
-🔗 **Acesse a Interface Online:** [Insira o link do Deploy aqui]
+
 
 ## 🛠️ Tecnologias Utilizadas
 
