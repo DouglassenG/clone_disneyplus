@@ -1,61 +1,50 @@
-# 🎬 Disney+ Clone - Frontend Landing Page
+# 🎬 Clone Interface - Disney+
 
-![Status](https://img.shields.io/badge/Status-Finalizado-green)
-![HTML5](https://img.shields.io/badge/Markup-HTML5-E34F26?logo=html5&logoColor=white)
-![SASS](https://img.shields.io/badge/Style-SASS-CC6699?logo=sass&logoColor=white)
-![JavaScript](https://img.shields.io/badge/Code-JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![Gulp](https://img.shields.io/badge/Task_Runner-Gulp-CF4647?logo=gulp&logoColor=white)
-
-> Recriação *Pixel-Perfect* da interface da página de destino (Landing Page) do Disney+, focada em performance, design responsivo e interatividade nativa.
+> Recriação *pixel-perfect* da Landing Page do Disney+, arquitetada com foco em semântica HTML, modularidade de estilos via pré-processadores e automação do fluxo de build para otimização de performance front-end.
 
 ## 🎯 Motivação e Propósito
 
-Construir interfaces de plataformas de streaming exige atenção rigorosa a detalhes visuais e ao peso dos arquivos, pois são páginas com alta carga de imagens de fundo (backgrounds) e elementos sobrepostos. O propósito deste projeto foi consolidar conhecimentos em **Arquitetura de Estilos** e **Automação de Tarefas (Build)**.
+Interfaces de plataformas de streaming são inerentemente pesadas devido ao grande volume de imagens em alta resolução e seções interativas. O propósito deste projeto foi aplicar os conceitos de **Automação de Tarefas (Task Runners)** e **Arquitetura CSS** para construir uma aplicação estática limpa, manutenível e performática.
 
-Este repositório resolve o problema de estruturar páginas complexas sem frameworks pesados, provando a capacidade de construir interfaces modernas e responsivas utilizando a tríade fundamental da web (HTML, CSS e JS) potencializada por ferramentas de desenvolvimento.
+Este repositório resolve o problema da entrega de *assets* pesados ao cliente final. Em vez de enviar imagens brutas e arquivos CSS extensos, o código fonte passa por um processo automatizado de compressão antes de ser servido no navegador, simulando o pipeline de um ambiente de produção real.
 
-> **Resultados de Performance:** "O workflow automatizado lidou eficientemente com a alta carga de imagens de fundo (backgrounds) e elementos sobrepostos. A compressão otimizou drasticamente o Largest Contentful Paint (LCP) das imagens de alta resolução (Hero e sessões de filmes), deixando o carregamento da aplicação 3x mais rápido."
- 
-## 🖼️ Demonstração Visual
-
-
+> **Resultados de Otimização e Performance:** "A implementação do **Gulp** aliado aos plugins de minificação (`gulp-uglify` e `gulp-sass`) e compressão de imagens (`gulp-imagemin`) reduziu significativamente o tamanho final da pasta de distribuição (`/dist`), diminuindo o tempo de requisição dos assets estáticos e otimizando a métrica de *First Contentful Paint (FCP)* no carregamento da interface."
 
 ## 🛠️ Tecnologias Utilizadas
 
-A stack baseia-se em performance e otimização de código estático:
+A stack baseia-se na tríade fundamental da web, potencializada por ferramentas de compilação:
 
-* **[HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML):** Estrutura semântica e acessível da página.
-* **[SASS (SCSS)](https://sass-lang.com/):** Pré-processador CSS utilizado para criar variáveis, aninhamentos e modularizar a estilização (Metodologia BEM).
-* **[JavaScript (Vanilla)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript):** Lógica de interatividade sem dependência de bibliotecas externas.
-* **[Gulp](https://gulpjs.com/):** Task Runner configurado para compilar o SASS, minificar o CSS, ofuscar o JavaScript e comprimir as imagens para o diretório de distribuição (`/dist`).
+* **[HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML):** Estruturação semântica da página.
+* **[SASS / SCSS](https://sass-lang.com/):** Pré-processador CSS. Utilizado em conjunto com a **Metodologia BEM (Block, Element, Modifier)** para criar um CSS escalável, evitando conflitos de especificidade.
+* **[JavaScript (Vanilla)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript):** Controle de manipulação do DOM e eventos.
+* **[Gulp](https://gulpjs.com/):** Automatizador de tarefas em Node.js para processar os arquivos da pasta `/src` e gerar os binários na pasta `/dist`.
 
 ## ✨ Funcionalidades
 
-A aplicação possui interatividades chaves replicadas da plataforma original:
+A aplicação possui interatividades chaves replicadas nativamente, sem uso de bibliotecas de terceiros:
 
-1.  **Header Dinâmico:** O menu de navegação altera sua opacidade/cor de fundo ao detectar o evento de *scroll* do usuário.
-2.  **Sistema de Abas (Tabs):** Alternância fluida entre as seções de filmes, séries e exclusividades sem recarregar a página.
-3.  **FAQ Interativo (Accordion):** Seção de Perguntas Frequentes expansível utilizando manipulação direta de classes no DOM.
-4.  **Layout Responsivo:** Adaptação total para dispositivos móveis, tablets e telas Ultrawide utilizando Media Queries e Flexbox/Grid.
+1.  **Header Dinâmico:** Alteração da transparência e *background-color* do menu de navegação baseada no evento de *scroll* da janela.
+2.  **Sistema de Abas (Tabs):** Navegação assíncrona visual entre as seções de categorias (Filmes, Séries, Exclusivos) através de manipulação de classes CSS ativas.
+3.  **FAQ Interativo (Accordion):** Seção expansível para perguntas frequentes.
+4.  **Layout Responsivo:** Breakpoints configurados via Media Queries para adaptação perfeita em dispositivos móveis, tablets e telas Desktop.
 
 ## 📂 Estrutura de Arquivos
 
-A arquitetura do projeto separa claramente o ambiente de desenvolvimento (arquivos brutos) do ambiente de produção (arquivos minificados):
+A organização do projeto isola o ambiente de desenvolvimento do código de produção gerado dinamicamente:
 
 ```text
 clone_disneyplus/
-├── src/                 # Código-fonte (Ambiente de Desenvolvimento)
-│   ├── images/          # Imagens em alta resolução
+├── src/                 # Código-fonte bruto (Ambiente de Dev)
+│   ├── images/          # Imagens originais (Backgrounds, Posters)
 │   ├── scripts/         # Lógica JavaScript (main.js)
-│   └── styles/          # Arquivos SASS modularizados
+│   └── styles/          # Arquivos SCSS componentizados
 │       ├── _variables.scss
 │       ├── _header.scss
 │       └── main.scss
-├── dist/                # Arquivos otimizados para Produção (Gerados pelo Gulp)
+├── dist/                # Código de Produção (Gerado pelo Gulp)
 │   ├── images/          # Imagens comprimidas
-│   ├── scripts/         # JS minificado/ofuscado
-│   └── styles/          # CSS final compilado e minificado
-├── index.html           # Marcação principal estruturada
-├── gulpfile.js          # Configuração e tarefas do Gulp
-├── package.json         # Dependências do Node.js
-└── README.md            # Documentação do Projeto
+│   ├── scripts/         # JS ofuscado e minificado
+│   └── styles/          # CSS final compilado
+├── gulpfile.js          # Arquivo de configuração das tarefas do Gulp
+├── package.json         # Gestão de dependências (Node.js)
+└── index.html           # Ponto de entrada estrutural
